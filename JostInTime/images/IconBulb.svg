@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="LIGTBULB" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 144 144">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #abdfec;
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-3 {
+        fill: #00a79d;
+      }
+
+      .cls-3, .cls-4 {
+        opacity: .47;
+      }
+
+      .cls-5 {
+        fill: url(#linear-gradient-4);
+      }
+
+      .cls-6 {
+        fill: url(#linear-gradient-3);
+      }
+
+      .cls-7 {
+        fill: url(#linear-gradient-5);
+      }
+
+      .cls-4 {
+        fill: #00827a;
+      }
+
+      .cls-8 {
+        fill: url(#linear-gradient-6);
+      }
+
+      .cls-9 {
+        fill: none;
+        stroke: #f15a29;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-10 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="71" y1="90" x2="71" y2="29" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff575"/>
+      <stop offset="1" stop-color="#fbaa29"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="50.42" y1="104.37" x2="89.73" y2="65.06" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff575"/>
+      <stop offset="1" stop-color="#fbaa29"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="64.64" y1="110.8" x2="77.61" y2="133.27" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#231f20"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-4" x1="57" y1="114.5" x2="84" y2="114.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#231f20"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-5" y1="126.5" y2="126.5" xlink:href="#linear-gradient-4"/>
+    <linearGradient id="linear-gradient-6" y1="120.5" y2="120.5" xlink:href="#linear-gradient-4"/>
+  </defs>
+  <circle class="cls-1" cx="72" cy="72" r="72"/>
+  <path class="cls-4" d="M48.71,141.13l33.29-20.13,4-40L17.57,120.1c8.25,9.53,18.96,16.86,31.14,21.03Z"/>
+  <path class="cls-3" d="M0,66c-2,38,21.52,65.61,49,75l33-23L60,31,0,66Z"/>
+  <g id="lightbulb">
+    <ellipse class="cls-10" cx="71" cy="59.5" rx="32" ry="30.5"/>
+    <path class="cls-2" d="M75,115h-9c-6.6,0-12-5.4-12-12v-14c-23-34-8-6,13-6h8c20,0,36-23,12,6v14c0,6.6-5.4,12-12,12Z"/>
+    <path class="cls-9" d="M67,112c-1.76-1.98,1.16-4.63,0-10-.92-4.25-3.22-4.77-3-8,.23-3.44,2.91-3.96,3-7,.12-4.29-5.05-8.82-7-8-1.55.66-1.95,5.1,0,7,.33.32.82.67,5,1,4.07.32,6.73.24,10.31.13.28,0,.89-.03,1.69-.13,1.51-.18,3.06-.37,4-1,2.17-1.46,2.45-6.17,1-7-1.58-.9-6.27,2.19-7,6-.56,2.96,1.77,3.77,2,8,.22,4.04-1.84,4.45-2,9-.18,5.1,2.33,6.86,1,9-1.6,2.56-7.12,3.12-9,1Z"/>
+    <path class="cls-6" d="M77,132h-13.14c-2.68,0-4.86-2.17-4.86-4.86v-10.29c0-2.67,2.19-4.86,4.86-4.86h14.14c5,0,5,4,5,5v10c0,4-2,5-6,5Z"/>
+    <rect class="cls-5" x="57" y="112" width="27" height="5" rx="2.5" ry="2.5"/>
+    <rect class="cls-7" x="57" y="124" width="27" height="5" rx="2.5" ry="2.5"/>
+    <rect class="cls-8" x="57" y="118" width="27" height="5" rx="2.5" ry="2.5"/>
+  </g>
+</svg>
