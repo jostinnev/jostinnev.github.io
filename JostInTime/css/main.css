@@ -1,0 +1,330 @@
+/* Basic reset */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: #fff;
+  background: #0b1020;
+}
+
+/* ===== Top bar ===== */
+.topbar {
+  background: #ff4a1f; /* close to your screenshot orange */
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+
+.topbar-inner {
+  width: 100%;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.brand-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.brand-name {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+/* Nav link on the right */
+.nav-link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  opacity: 0.85;
+}
+
+/* ===== Hero image section ===== */
+.hero {
+  position: relative;
+  height: calc(100vh - 64px); /* full screen minus top bar */
+  min-height: 520px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: #0f3b82;
+}
+
+/* Video fills the hero */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* same as background-size: cover */
+  z-index: 0;
+}
+
+/* Dark overlay so text is readable */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.15) 0%,
+    rgba(0,0,0,0.35) 50%,
+    rgba(0,0,0,0.65) 100%
+  );
+  z-index: 1;
+}
+
+/* Text content */
+.hero-content {
+  position: absolute;
+  bottom: 112px; /* move up/down */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  padding: 0 24px;
+  text-align: center;
+  z-index: 2;
+}
+
+
+.hero-content h1 {
+  margin: 0;
+  font-size: clamp(44px, 6vw, 110px);
+  font-weight: 800;
+  line-height: 0.95;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* Big text------------------------------------------------------------------------------------ */
+.hero-content {
+  position: relative; /* above overlay */
+  width: 100%;
+  padding: 0 24px 72px; /* bottom padding to float text up a bit */
+  text-align: center;
+}
+
+.hero-content h1 {
+  margin: 0;
+  font-size: clamp(90px, 10vw, 150px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 0.95;
+
+  /*  subtle shadow */
+  text-shadow: 0 10px 30px rgba(0,0,0,0.55);
+}
+
+.section {
+  padding: 48px 0;
+  background: #0b1020;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+.container {
+  width: min(1100px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.section h2 {
+  margin: 0 0 10px;
+}
+.section p {
+  margin: 0;
+  opacity: 0.85;
+}
+
+/* Mobile tweaks */
+@media (max-width: 520px) {
+  .topbar-inner { padding: 0 16px; }
+  .brand-name { font-size: 18px; }
+  .nav-link { font-size: 16px; }
+  .hero-content { padding-bottom: 56px; }
+}
+/*ABOUT-----------------------------------------------------------------------------------------*/
+.about-section {
+  background: #0f3b82; /* deep blue */
+  color: #fff;
+  padding: 80px 0;
+}
+
+.about-container {
+  width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.about-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.about-header h2 {
+  margin: 0;
+  font-size: 70px;
+  line-height: 1;
+  color: #ff4a1f;
+}
+
+.about-header span {
+  color: #fff;
+  font-size: 63px;
+}
+
+.about-header img {
+  width: 150px;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 40px;
+}
+
+.about-text h3 {
+  margin-top: 0;
+}
+
+.portrait-wrap {
+  width: 330px;              /* size of the circle */
+  height:330px;
+  border-radius: 50%;        /* makes it a circle */
+  overflow: hidden;          /* crops the image */
+  margin-top: 32px;          /* space from text */
+  border: 6px solid #ffffff; /* white ring like your mockup */
+}
+
+.portrait-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* keeps face centered */
+}
+
+
+.about-image-large img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+/*CONTACT-------------------------------------------------------------------------------------*/
+.contact-section {
+  background: linear-gradient(
+    to right,
+    #7fa9ff,
+	#ffb59c
+  );
+}
+
+.contact-container {
+  width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.contact-form h2 {
+  font-size: 48px;
+  margin-top: 0;
+}
+
+.contact-form form {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+}
+
+.contact-form button {
+  margin-top: 10px;
+  padding: 12px;
+  background: #2b1a10;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.contact-image img {
+  width: 120%;
+  border-radius: 2px;
+}
+
+/*FOOTER----------------------------------------------------------------------------------------*/
+/* ===== Footer ===== */
+.footer-section {
+  background: #ff4a1f;
+  padding: 80px 24px 60px;
+  color: #111;
+}
+
+.footer-inner {
+  width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /*centers text + icons */
+  gap: 28px;
+}
+
+/* Big name stays bold and centered */
+.footer-name {
+  margin: 0;
+  font-size: clamp(48px, 8vw, 120px);
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+/* Social icons centered */
+.footer-socials {
+  display: flex;
+  justify-content: center; /*perfect centering */
+  align-items: center;
+  gap: 20px;
+}
+
+.social-link {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  border: 2px solid rgba(0,0,0,0.35);
+  display: grid;
+  place-items: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.social-link svg {
+  width: 22px;
+  height: 22px;
+  fill: #111;
+}
+
+.social-link:hover {
+  background: rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
