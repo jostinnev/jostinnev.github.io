@@ -116,24 +116,51 @@ body {
 }
 
 /* Discover link under the hero title */
-.hero-discover {
-  display: inline-block;
-  margin-top: 18px;
+/* Reusable scroll cue (discover/contact) */
+.scrollcue-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.scrollcue-text {
+  color: #ff7a00;
   font-size: 0.95rem;
   font-weight: 600;
-  color: #ff7a00; /* same as header/footer */
+  letter-spacing: 0.6px;
   text-decoration: underline;
   text-underline-offset: 6px;
   text-decoration-thickness: 2px;
-  cursor: pointer;
-  letter-spacing: 0.6px;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
-.hero-discover:hover {
+.scrollcue-link:hover .scrollcue-text {
   opacity: 0.8;
-  transform: translateY(2px);
 }
+
+/* The arrow (animated) */
+.scrollcue-arrow {
+  color: #ff7a00;
+  font-size: 1.25rem;
+  line-height: 1;
+  animation: scrollCueBounce 1.4s infinite ease-in-out;
+}
+
+.hero-scrollcue {
+  position: absolute;
+  left: 50%;
+  bottom: 26px;        /* controls how close to bottom */
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+@keyframes scrollCueBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.9; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+
 
 .section {
   padding: 48px 0;
@@ -224,6 +251,12 @@ body {
 .about-image-large img {
   width: 100%;
   border-radius: 6px;
+}
+
+.about-scrollcue {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
 }
 
 /*CONTACT-------------------------------------------------------------------------------------*/
@@ -332,3 +365,4 @@ body {
   background: rgba(0,0,0,0.12);
   transform: translateY(-2px);
 }
+
