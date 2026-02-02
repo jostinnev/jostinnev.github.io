@@ -14,7 +14,7 @@ body {
 
 /* ===== Top bar ===== */
 .topbar {
-  background: #ff7a00; /* updated to your chosen orange */
+  background: #ff7a00;
   height: 64px;
   display: flex;
   align-items: center;
@@ -47,7 +47,6 @@ body {
   font-size: 20px;
 }
 
-/* Nav link on the right */
 .nav-link {
   text-decoration: none;
   color: #fff;
@@ -55,49 +54,42 @@ body {
   font-weight: 500;
 }
 
-.nav-link:hover {
-  opacity: 0.85;
-}
+.nav-link:hover { opacity: 0.85; }
 
-/* ===== Hero image section ===== */
+/* ===== Hero ===== */
 .hero {
   position: relative;
-  height: calc(100vh - 64px); /* full screen minus top bar */
+  height: calc(100vh - 64px);
   min-height: 520px;
   overflow: hidden;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
   background: #0f3b82;
 }
 
-/* Video fills the hero */
 .hero-video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* same as background-size: cover */
+  object-fit: cover;
   z-index: 0;
 }
 
-/* Dark overlay so text is readable */
 .hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.15) 0%,
-    rgba(0,0,0,0.35) 50%,
-    rgba(0,0,0,0.65) 100%
+    rgba(0,0,0,0.15),
+    rgba(0,0,0,0.35),
+    rgba(0,0,0,0.65)
   );
   z-index: 1;
 }
 
-/* Text content (single clean version — removed duplicates) */
+/* Hero title */
 .hero-content {
   position: absolute;
-  bottom: 210px; /* move up/down */
+  bottom: 210px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -115,34 +107,7 @@ body {
   text-shadow: 0 10px 30px rgba(0,0,0,0.55);
 }
 
-/* Letter jump animation */
-.hero-title span.char {
-  display: inline-block;
-  transform: translateY(0);
-  animation: heroJump 550ms ease both;
-  animation-delay: calc(var(--i) * 55ms);
-}
-
-/* Keep spaces */
-.hero-title span.space {
-  display: inline-block;
-  width: 0.35em;
-}
-
-@keyframes heroJump {
-  0%   { transform: translateY(0); }
-  35%  { transform: translateY(-16px); }
-  60%  { transform: translateY(0); }
-  80%  { transform: translateY(-6px); }
-  100% { transform: translateY(0); }
-}
-
-/* Optional: respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .hero-title span.char {
-    animation: none;
-  }
-}
+/* Stack lines */
 .hero-title {
   display: flex;
   flex-direction: column;
@@ -153,9 +118,28 @@ body {
   display: block;
 }
 
+/* ===== Continuous letter wave animation ===== */
+.hero-title span.char {
+  display: inline-block;
+  animation: heroWave 2.6s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.12s);
+}
 
-/* Discover link under the hero title */
-/* Reusable scroll cue (discover/contact) */
+@keyframes heroWave {
+  0%   { transform: translateY(0); }
+  15%  { transform: translateY(-14px); }
+  30%  { transform: translateY(0); }
+  100% { transform: translateY(0); }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .hero-title span.char {
+    animation: none;
+  }
+}
+
+/* ===== Scroll cue ===== */
 .scrollcue-link {
   display: inline-flex;
   flex-direction: column;
@@ -172,25 +156,18 @@ body {
   text-decoration: underline;
   text-underline-offset: 6px;
   text-decoration-thickness: 2px;
-  transition: opacity 0.2s ease;
 }
 
-.scrollcue-link:hover .scrollcue-text {
-  opacity: 0.8;
-}
-
-/* The arrow (animated) */
 .scrollcue-arrow {
   color: #ff7a00;
   font-size: 1.25rem;
-  line-height: 1;
   animation: scrollCueBounce 1.4s infinite ease-in-out;
 }
 
 .hero-scrollcue {
   position: absolute;
   left: 50%;
-  bottom: 26px;        /* controls how close to bottom */
+  bottom: 26px;
   transform: translateX(-50%);
   z-index: 2;
 }
@@ -200,37 +177,9 @@ body {
   50% { transform: translateY(6px); opacity: 1; }
 }
 
-
-.section {
-  padding: 48px 0;
-  background: #0b1020;
-  border-top: 1px solid rgba(255,255,255,0.12);
-}
-
-.container {
-  width: min(1100px, calc(100% - 48px));
-  margin: 0 auto;
-}
-
-.section h2 {
-  margin: 0 0 10px;
-}
-.section p {
-  margin: 0;
-  opacity: 0.85;
-}
-
-/* Mobile tweaks */
-@media (max-width: 520px) {
-  .topbar-inner { padding: 0 16px; }
-  .brand-name { font-size: 18px; }
-  .nav-link { font-size: 16px; }
-}
-
-/*ABOUT-----------------------------------------------------------------------------------------*/
+/* ===== About ===== */
 .about-section {
-  background: #0f3b82; /* deep blue */
-  color: #fff;
+  background: #0f3b82;
   padding: 80px 0;
 }
 
@@ -248,17 +197,12 @@ body {
 .about-header h2 {
   margin: 0;
   font-size: 70px;
-  line-height: 1;
-  color: #ff7a00; /* match your new orange */
+  color: #ff7a00;
 }
 
 .about-header span {
   color: #fff;
   font-size: 63px;
-}
-
-.about-header img {
-  width: 150px;
 }
 
 .about-content {
@@ -268,23 +212,19 @@ body {
   margin-top: 40px;
 }
 
-.about-text h3 {
-  margin-top: 0;
-}
-
 .portrait-wrap {
-  width: 330px;              /* size of the circle */
+  width: 330px;
   height: 330px;
-  border-radius: 50%;        /* makes it a circle */
-  overflow: hidden;          /* crops the image */
-  margin-top: 32px;          /* space from text */
-  border: 6px solid #ffffff; /* white ring like your mockup */
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: 32px;
+  border: 6px solid #fff;
 }
 
 .portrait-wrap img {
   width: 100%;
   height: 100%;
-  object-fit: cover;         /* keeps face centered */
+  object-fit: cover;
 }
 
 .about-image-large img {
@@ -298,13 +238,9 @@ body {
   margin-top: 48px;
 }
 
-/*CONTACT-------------------------------------------------------------------------------------*/
+/* ===== Contact ===== */
 .contact-section {
-  background: linear-gradient(
-    to right,
-    #7fa9ff,
-    #ffb59c
-  );
+  background: linear-gradient(to right, #7fa9ff, #ffb59c);
 }
 
 .contact-container {
@@ -313,46 +249,35 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
-  align-items: center;
 }
 
 .contact-form h2 {
   font-size: 48px;
-  margin-top: 0;
 }
 
 .contact-form form {
   display: grid;
   gap: 12px;
-  margin-top: 20px;
 }
 
 .contact-form input,
 .contact-form textarea {
   padding: 12px;
-  border: none;
   border-radius: 4px;
+  border: none;
 }
 
 .contact-form button {
-  margin-top: 10px;
   padding: 12px;
+  border-radius: 20px;
   background: #2b1a10;
   color: #fff;
   border: none;
-  border-radius: 20px;
-  cursor: pointer;
 }
 
-.contact-image img {
-  width: 120%;
-  border-radius: 2px;
-}
-
-/*FOOTER----------------------------------------------------------------------------------------*/
 /* ===== Footer ===== */
 .footer-section {
-  background: #ff7a00; /* updated to your chosen orange */
+  background: #ff7a00;
   padding: 80px 24px 60px;
   color: #111;
 }
@@ -360,27 +285,19 @@ body {
 .footer-inner {
   width: min(1200px, calc(100% - 48px));
   margin: 0 auto;
-
   display: flex;
   flex-direction: column;
-  align-items: center;   /* centers text + icons */
+  align-items: center;
   gap: 28px;
 }
 
-/* Big name stays bold and centered */
 .footer-name {
-  margin: 0;
   font-size: clamp(48px, 8vw, 120px);
-  font-weight: 400;
   letter-spacing: 3px;
-  text-align: center;
 }
 
-/* Social icons centered */
 .footer-socials {
   display: flex;
-  justify-content: center; /* perfect centering */
-  align-items: center;
   gap: 20px;
 }
 
@@ -391,24 +308,9 @@ body {
   border: 2px solid rgba(0,0,0,0.35);
   display: grid;
   place-items: center;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.social-link svg {
-  width: 22px;
-  height: 22px;
-  fill: #111;
 }
 
 .social-link:hover {
   background: rgba(0,0,0,0.12);
   transform: translateY(-2px);
 }
-
-
-
-
-
-
-
-
