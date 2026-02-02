@@ -32,7 +32,7 @@
   <div class="hero-overlay"></div>
 
   <div class="hero-content" id="heroText">
-    <h1>Welcome To JostInTime</h1>
+    <h1 id="heroTitle">Welcome To JostInTime</h1>
   </div>
 
   <!-- NEW: bottom “discover” cue -->
@@ -152,8 +152,45 @@
     </div>
   </footer>
 
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const title = document.getElementById("heroTitle");
+    if (!title) return;
+
+    const text = title.textContent || "";
+    title.classList.add("hero-title");
+
+    // Accessibility: keep the full text for screen readers
+    title.setAttribute("aria-label", text);
+
+    // Build spans (preserve spaces)
+    title.innerHTML = "";
+    let index = 0;
+
+    for (const ch of text) {
+      if (ch === " ") {
+        const space = document.createElement("span");
+        space.className = "space";
+        space.setAttribute("aria-hidden", "true");
+        space.innerHTML = "&nbsp;";
+        title.appendChild(space);
+      } else {
+        const span = document.createElement("span");
+        span.className = "char";
+        span.style.setProperty("--i", index);
+        span.textContent = ch;
+        span.setAttribute("aria-hidden", "true");
+        title.appendChild(span);
+        index++;
+      }
+    }
+  });
+</script>
+
+
 </body>
 </html>
+
 
 
 
