@@ -23,22 +23,25 @@
 
 <!-- HERO ------------------------------------------------------------------------------------>
   <section class="hero">
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src="videos/AfterEffects/ParallaxProject.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="videos/AfterEffects/ParallaxProject.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 
-    <div class="hero-overlay"></div>
+  <div class="hero-overlay"></div>
 
-    <div class="hero-content" id="heroText">
-      <h1>Welcome To JostInTime</h1>
-      <a href="#about" class="hero-discover">discover</a>
+  <div class="hero-content" id="heroText">
+    <h1>Welcome To JostInTime</h1>
+  </div>
 
-
-      <!-- Discover link -->
-      <a href="#about" class="hero-discover">discover</a>
-    </div>
-  </section>
+  <!-- NEW: bottom “discover” cue -->
+  <div class="hero-scrollcue">
+    <a href="#about" class="scrollcue-link">
+      <span class="scrollcue-text">discover</span>
+      <span class="scrollcue-arrow" aria-hidden="true">↓</span>
+    </a>
+  </div>
+</section>
 
 <!-- ABOUT ----------------------------------------------------------------------------------->
   <section id="about" class="about-section">
@@ -83,7 +86,12 @@
           <img src="videos/gifs/gif1.gif" alt="Artwork preview">
         </div>
       </div>
-
+<div class="about-scrollcue">
+  <a href="#contact" class="scrollcue-link">
+    <span class="scrollcue-text">contact</span>
+    <span class="scrollcue-arrow" aria-hidden="true">↓</span>
+  </a>
+</div>
     </div>
   </section>
 
@@ -145,4 +153,5 @@
 
 </body>
 </html>
+
 
