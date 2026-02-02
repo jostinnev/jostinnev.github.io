@@ -1,0 +1,327 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adobe Illustrator | Jostin Nevarez</title>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <link rel="stylesheet" href="../css/portfolio.css">
+  <link rel="stylesheet" href="../css/carousel.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">
+        <img class="brand-logo" src="../images/LOGO_3.svg" alt="Logo">
+        <span class="brand-name">Jostin Nevarez</span>
+      </a>
+
+      <nav class="nav">
+        <a class="nav-link" href="portfolio.html">← Back to Gallery</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- carousel --------------------------->
+  <section class="char-carousel-section">
+    <div class="char-carousel-header">
+      <h1>After Effects</h1>
+      <p>Small/simple animation, and text animation</p>
+    </div>
+
+    <div class="carousel" aria-label="Character carousel">
+      <button class="carousel-btn prev" type="button" aria-label="Previous slide">‹</button>
+
+      <div class="carousel-track" id="charTrack">
+
+        <!-- Slide 1 -->
+        <article class="slide">
+          <button class="media-btn" type="button"
+            data-type="video"
+            data-src="../videos/AfterEffects/ParallaxProject.mp4">
+            <img src="../videos/AfterEffects/ParallaxProjectCover.jpg" alt="Parallax Project cover">
+            <span class="play-badge" aria-hidden="true">▶</span>
+          </button>
+        </article>
+
+        <!-- Slide 2 -->
+        <article class="slide">
+          <button class="media-btn" type="button"
+            data-type="youtube"
+            data-id="5cnQvVeqAFc">
+            <img src="../videos/AfterEffects/SynesthesiaCover.jpg" alt="Synesthesia animation">
+            <span class="play-badge" aria-hidden="true">▶</span>
+          </button>
+        </article>
+
+        <!-- Slide 3 -->
+        <article class="slide">
+          <button class="media-btn" type="button"
+            data-type="video"
+            data-src="../videos/AfterEffects/BallBounce.mp4">
+            <img src="../videos/AfterEffects/BallBounceCover.jpg" alt="Ball Bounce cover">
+            <span class="play-badge" aria-hidden="true">▶</span>
+          </button>
+        </article>
+
+        <!-- Slide 4 -->
+        <article class="slide">
+          <button class="media-btn" type="button"
+            data-type="youtube"
+            data-id="7J5japjVlpc">
+            <img src="../videos/AfterEffects/REtittleSeqCover.jpg" alt="Retitle sequence animation">
+            <span class="play-badge" aria-hidden="true">▶</span>
+          </button>
+        </article>
+
+        <!-- Slide 5 -->
+        <article class="slide">
+          <button class="media-btn" type="button"
+            data-type="video"
+            data-src="../videos/AfterEffects/Jisoo.mp4"
+            aria-label="Play Jisoo video">
+            <img src="../videos/AfterEffects/JisooCover.jpg" alt="Jisoo cover">
+            <span class="play-badge" aria-hidden="true">▶</span>
+          </button>
+        </article>
+
+        <!-- Slide 6 -->
+        <article class="slide">
+          <button class="media-btn" type="button"
+            data-type="video"
+            data-src="../videos/AfterEffects/Wave.mp4"
+            aria-label="Play Wave video">
+            <img src="../videos/AfterEffects/WaveCover.jpg" alt="Wave cover">
+            <span class="play-badge" aria-hidden="true">▶</span>
+          </button>
+        </article>
+
+      </div>
+
+      <button class="carousel-btn next" type="button" aria-label="Next slide">›</button>
+    </div>
+
+    <div class="carousel-dots" id="charDots" aria-label="Slide navigation"></div>
+  </section>
+
+  <!-- Lightbox modal -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-backdrop" data-close="true"></div>
+
+    <div class="lightbox-panel" role="dialog" aria-modal="true" aria-label="Media viewer">
+      <button class="lightbox-close" type="button" aria-label="Close" data-close="true">✕</button>
+      <div class="lightbox-content" id="lightboxContent"></div>
+    </div>
+  </div>
+
+  <!-- Carousel + Lightbox JS -->
+  <script>
+    (function () {
+      // ===== Carousel =====
+      const track = document.getElementById("charTrack");
+      const dotsWrap = document.getElementById("charDots");
+      const prevBtn = document.querySelector(".carousel-btn.prev");
+      const nextBtn = document.querySelector(".carousel-btn.next");
+
+      if (!track || !dotsWrap) return;
+
+      const slides = Array.from(track.querySelectorAll(".slide"));
+      let activeIndex = 0;
+
+      const dots = slides.map((_, i) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "carousel-dot";
+        b.setAttribute("aria-label", `Go to slide ${i + 1}`);
+        b.addEventListener("click", () => scrollToIndex(i));
+        dotsWrap.appendChild(b);
+        return b;
+      });
+
+      function setActive(i) {
+        activeIndex = Math.max(0, Math.min(i, slides.length - 1));
+        dots.forEach((d, idx) => d.classList.toggle("is-active", idx === activeIndex));
+      }
+
+      function scrollToIndex(i) {
+        const slide = slides[i];
+        if (!slide) return;
+        track.scrollTo({ left: slide.offsetLeft, behavior: "smooth" });
+        setActive(i);
+      }
+
+      function getClosestIndex() {
+        const x = track.scrollLeft;
+        let closest = 0;
+        let min = Infinity;
+        slides.forEach((s, i) => {
+          const dist = Math.abs(s.offsetLeft - x);
+          if (dist < min) { min = dist; closest = i; }
+        });
+        return closest;
+      }
+
+      prevBtn?.addEventListener("click", () => scrollToIndex(activeIndex - 1));
+      nextBtn?.addEventListener("click", () => scrollToIndex(activeIndex + 1));
+
+      let ticking = false;
+      track.addEventListener("scroll", () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          setActive(getClosestIndex());
+          ticking = false;
+        });
+      }, { passive: true });
+
+      setActive(0);
+
+      // ===== Lightbox =====
+      const lightbox = document.getElementById("lightbox");
+      const content = document.getElementById("lightboxContent");
+      if (!lightbox || !content) return;
+
+      function openLightbox({ type, src, alt }) {
+        content.innerHTML = "";
+
+        if (type === "youtube") {
+  const vid = src || "";
+
+  const wrapper = document.createElement("div");
+  wrapper.className = "yt-lightbox";
+
+  // Clickable "player"
+  const player = document.createElement("a");
+  player.className = "yt-player";
+  player.href = `https://www.youtube.com/watch?v=${vid}`;
+  player.target = "_blank";
+  player.rel = "noopener";
+  player.setAttribute("aria-label", "Play on YouTube");
+
+  // Thumbnail
+  const thumb = document.createElement("img");
+  thumb.className = "yt-thumb";
+  thumb.src = `https://i.ytimg.com/vi/${vid}/maxresdefault.jpg`;
+  thumb.alt = alt || "YouTube video thumbnail";
+  thumb.onerror = () => {
+    thumb.src = `https://i.ytimg.com/vi/${vid}/hqdefault.jpg`;
+  };
+
+  // Play overlay
+  const overlay = document.createElement("div");
+  overlay.className = "yt-overlay";
+  overlay.innerHTML = `
+    <div class="yt-playbtn" aria-hidden="true">
+      <span class="yt-tri"></span>
+    </div>
+    <div class="yt-hint">Play on YouTube</div>
+  `;
+
+  player.appendChild(thumb);
+  player.appendChild(overlay);
+
+  // Optional secondary button (nice for accessibility + clarity)
+  const link = document.createElement("a");
+  link.className = "yt-openlink";
+  link.href = `https://www.youtube.com/watch?v=${vid}`;
+  link.target = "_blank";
+  link.rel = "noopener";
+  link.textContent = "Open on YouTube";
+
+  wrapper.appendChild(player);
+  wrapper.appendChild(link);
+  content.appendChild(wrapper);
+} else if (type === "video") {
+          const video = document.createElement("video");
+          video.src = src;
+          video.controls = true;
+          video.autoplay = true;
+          video.playsInline = true;
+          video.style.width = "100%";
+          video.style.maxHeight = "80vh";
+          content.appendChild(video);
+
+        } else {
+          const img = document.createElement("img");
+          img.src = src;
+          img.alt = alt || "Enlarged image";
+          img.style.width = "100%";
+          content.appendChild(img);
+        }
+
+        lightbox.classList.add("is-open");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove("is-open");
+        lightbox.setAttribute("aria-hidden", "true");
+        content.innerHTML = "";
+        document.body.style.overflow = "";
+      }
+
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest(".media-btn");
+
+        if (btn) {
+          const type = btn.dataset.type || "image";
+          const src = (type === "youtube") ? btn.dataset.id : btn.dataset.src;
+
+          // Debug (won't crash)
+          console.log("LIGHTBOX TYPE:", type);
+          console.log("LIGHTBOX SRC (raw):", src);
+          if (src) {
+            console.log("LIGHTBOX SRC (resolved):", new URL(src, document.baseURI).href);
+          }
+
+          openLightbox({
+            type,
+            src,
+            alt: btn.dataset.alt || btn.querySelector("img")?.alt || ""
+          });
+          return;
+        }
+
+        if (e.target.closest('[data-close="true"]')) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && lightbox.classList.contains("is-open")) {
+          closeLightbox();
+        }
+      });
+    })();
+  </script>
+
+  <!-- Footer ---------------------------------------------------------------------------->
+  <footer class="footer-section">
+    <div class="footer-inner">
+      <h2 class="footer-name">JOSTIN N.</h2>
+
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/jos__draws" target="_blank" rel="noopener" aria-label="Instagram" class="social-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5.5A4.5 4.5 0 1 0 16.5 12 4.51 4.51 0 0 0 12 7.5zm0 7.4A2.9 2.9 0 1 1 14.9 12 2.9 2.9 0 0 1 12 14.9zM17.5 6.2a1.05 1.05 0 1 0 1.05 1.05A1.05 1.05 0 0 0 17.5 6.2z"/>
+          </svg>
+        </a>
+
+        <a href="https://www.linkedin.com/in/yourusername" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4.98 3.5a2.48 2.48 0 1 1 0 4.96 2.48 2.48 0 0 1 0-4.96zM3 8.98h3.96V21H3zM9.02 8.98H13v1.64h.06a4.36 4.36 0 0 1 3.92-2.15c4.2 0 4.98 2.77 4.98 6.37V21h-3.96v-5.42c0-1.29-.03-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9.02z"/>
+          </svg>
+        </a>
+
+        <a href="mailto:jostinnev142005@gmail.com" aria-label="Email me" class="social-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
