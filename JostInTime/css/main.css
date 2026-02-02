@@ -97,7 +97,7 @@ body {
 /* Text content (single clean version — removed duplicates) */
 .hero-content {
   position: absolute;
-  bottom: 260px; /* move up/down */
+  bottom: 210px; /* move up/down */
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -365,6 +365,7 @@ body {
   background: rgba(0,0,0,0.12);
   transform: translateY(-2px);
 }
+
 
 
 
