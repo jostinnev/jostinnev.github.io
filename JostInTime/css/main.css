@@ -1,6 +1,10 @@
 /* Basic reset */
 * { box-sizing: border-box; }
 html, body { height: 100%; }
+
+/* Smooth scrolling for anchor links like #about */
+html { scroll-behavior: smooth; }
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -10,7 +14,7 @@ body {
 
 /* ===== Top bar ===== */
 .topbar {
-  background: #ff4a1f; /* close to your screenshot orange */
+  background: #ff7a00; /* updated to your chosen orange */
   height: 64px;
   display: flex;
   align-items: center;
@@ -90,7 +94,7 @@ body {
   z-index: 1;
 }
 
-/* Text content */
+/* Text content (single clean version — removed duplicates) */
 .hero-content {
   position: absolute;
   bottom: 112px; /* move up/down */
@@ -102,32 +106,33 @@ body {
   z-index: 2;
 }
 
-
-.hero-content h1 {
-  margin: 0;
-  font-size: clamp(44px, 6vw, 110px);
-  font-weight: 800;
-  line-height: 0.95;
-  text-shadow: 0 10px 30px rgba(0,0,0,0.6);
-}
-
-/* Big text------------------------------------------------------------------------------------ */
-.hero-content {
-  position: relative; /* above overlay */
-  width: 100%;
-  padding: 0 24px 72px; /* bottom padding to float text up a bit */
-  text-align: center;
-}
-
 .hero-content h1 {
   margin: 0;
   font-size: clamp(90px, 10vw, 150px);
   font-weight: 800;
   letter-spacing: -1px;
   line-height: 0.95;
-
-  /*  subtle shadow */
   text-shadow: 0 10px 30px rgba(0,0,0,0.55);
+}
+
+/* Discover link under the hero title */
+.hero-discover {
+  display: inline-block;
+  margin-top: 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ff7a00; /* same as header/footer */
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+  cursor: pointer;
+  letter-spacing: 0.6px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.hero-discover:hover {
+  opacity: 0.8;
+  transform: translateY(2px);
 }
 
 .section {
@@ -154,8 +159,8 @@ body {
   .topbar-inner { padding: 0 16px; }
   .brand-name { font-size: 18px; }
   .nav-link { font-size: 16px; }
-  .hero-content { padding-bottom: 56px; }
 }
+
 /*ABOUT-----------------------------------------------------------------------------------------*/
 .about-section {
   background: #0f3b82; /* deep blue */
@@ -178,7 +183,7 @@ body {
   margin: 0;
   font-size: 70px;
   line-height: 1;
-  color: #ff4a1f;
+  color: #ff7a00; /* match your new orange */
 }
 
 .about-header span {
@@ -203,7 +208,7 @@ body {
 
 .portrait-wrap {
   width: 330px;              /* size of the circle */
-  height:330px;
+  height: 330px;
   border-radius: 50%;        /* makes it a circle */
   overflow: hidden;          /* crops the image */
   margin-top: 32px;          /* space from text */
@@ -216,7 +221,6 @@ body {
   object-fit: cover;         /* keeps face centered */
 }
 
-
 .about-image-large img {
   width: 100%;
   border-radius: 6px;
@@ -227,7 +231,7 @@ body {
   background: linear-gradient(
     to right,
     #7fa9ff,
-	#ffb59c
+    #ffb59c
   );
 }
 
@@ -276,7 +280,7 @@ body {
 /*FOOTER----------------------------------------------------------------------------------------*/
 /* ===== Footer ===== */
 .footer-section {
-  background: #ff4a1f;
+  background: #ff7a00; /* updated to your chosen orange */
   padding: 80px 24px 60px;
   color: #111;
 }
@@ -287,7 +291,7 @@ body {
 
   display: flex;
   flex-direction: column;
-  align-items: center;   /*centers text + icons */
+  align-items: center;   /* centers text + icons */
   gap: 28px;
 }
 
@@ -303,7 +307,7 @@ body {
 /* Social icons centered */
 .footer-socials {
   display: flex;
-  justify-content: center; /*perfect centering */
+  justify-content: center; /* perfect centering */
   align-items: center;
   gap: 20px;
 }
