@@ -1,3 +1,4 @@
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -9,11 +10,10 @@
 
 <body>
 
-<!-- TOP BAR ---------------------------------------------------------------------------------->
 <header class="topbar">
   <div class="topbar-inner">
     <a class="brand" href="index.html">
-      <img class="brand-logo" src="images/LOGO_3.svg" alt="Logo" />
+      <img class="brand-logo" src="images/LOGO_3.svg" alt="Jostin Nevarez logo">
       <span class="brand-name">Jostin Nevarez</span>
     </a>
 
@@ -23,118 +23,132 @@
   </div>
 </header>
 
-<!-- HERO ------------------------------------------------------------------------------------>
-<section class="hero">
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="videos/AfterEffects/ParallaxProject.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+<main>
 
-  <div class="hero-overlay"></div>
+  <!-- HERO -->
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="videos/AfterEffects/ParallaxProject.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
 
-  <div class="hero-content" id="heroText">
-    <h1 class="hero-title">
-      <span class="hero-line">Welcome To</span>
-      <span id="heroAnimated">JostinTime</span>
-    </h1>
-  </div>
+    <div class="hero-overlay"></div>
 
-  <div class="hero-scrollcue">
-    <a href="#about" class="scrollcue-link">
-      <span class="scrollcue-text">DISCOVER</span>
-      <span class="scrollcue-arrow" aria-hidden="true">↓</span>
-    </a>
-  </div>
-</section>
-
-<!-- ABOUT ----------------------------------------------------------------------------------->
-<section id="about" class="about-section">
-  <div class="about-container">
-
-    <div class="about-header">
-      <h2>ABOUT<br><span>JostInTime</span></h2>
-      <img src="images/IconBulb.svg" alt="Idea icon">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="hero-line">Welcome To</span>
+        <span id="heroAnimated">JostinTime</span>
+      </h1>
     </div>
 
-    <div class="about-content">
-      <div class="about-text">
-        <h3>Creative Portfolio Overview</h3>
+    <div class="hero-scrollcue">
+      <a href="#about" class="scrollcue-link">
+        <span class="scrollcue-text">DISCOVER</span>
+        <span class="scrollcue-arrow">↓</span>
+      </a>
+    </div>
+  </section>
 
-        <p>Hey! I’m Jostin, and I welcome you to my website, JostInTime!</p>
+  <!-- ABOUT -->
+  <section id="about" class="about-section">
+    <div class="about-container">
 
-        <p>
-          I am a college student with a dream of becoming a big animator in the
-          industry and creating great character designs for games, movies,
-          or short films.
-        </p>
+      <div class="about-left">
+        <div class="about-heading-row">
+          <h2>
+            <span>ABOUT</span>
+            JostInTime
+          </h2>
 
-        <p>
-          This is my portfolio website that dedicates a space to showcase artwork
-          and projects I have created in the past, either for school or in my
-          free time.
-        </p>
+          <div class="about-divider"></div>
 
-        <p>
-          Feel free to go to the portfolio section and from there explore my inability
-          to not make everything colorful.
-        </p>
+          <img class="about-icon" src="images/IconBulb.svg" alt="Idea icon">
+        </div>
 
-        <br>
+        <div class="about-text">
+          <h3>Creative Portfolio Overview</h3>
 
-        <p>Also here is a little picture of me :)</p>
+          <p>Hey! I’m Jostin, and I welcome you to my website, JostInTime!</p>
 
-        <div class="portrait-wrap">
-          <img src="images/portrait.jpg" alt="Portrait of Jostin">
+          <p>
+            I am a college student with a dream of becoming a big animator in the
+            industry and creating great character designs for games, movies,
+            or short films.
+          </p>
+
+          <p>
+            This is my portfolio website that dedicates a space to showcase artwork
+            and projects I have created in the past, either for school or in my
+            free time.
+          </p>
+
+          <p>
+            Feel free to go to the portfolio section and from there explore my
+            inability to not make everything colorful.
+          </p>
+
+          <p>Also here is a little picture of me :)</p>
+
+          <div class="portrait-wrap">
+            <img src="images/portrait.jpg" alt="Portrait of Jostin">
+          </div>
         </div>
       </div>
 
-      <div class="about-image-large">
+      <div class="about-right">
         <img src="videos/gifs/gif1.gif" alt="Artwork preview">
       </div>
+
+      <div class="about-scrollcue">
+        <a href="#contact" class="scrollcue-link">
+          <span class="scrollcue-text">CONTACT</span>
+          <span class="scrollcue-arrow">↓</span>
+        </a>
+      </div>
+
     </div>
+  </section>
 
-    <div class="about-scrollcue">
-      <a href="#contact" class="scrollcue-link">
-        <span class="scrollcue-text">CONTACT</span>
-        <span class="scrollcue-arrow" aria-hidden="true">↓</span>
-      </a>
-    </div>
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="contact-container">
 
-  </div>
-</section>
+      <div class="contact-intro">
+        <h2>Contact<br>Me</h2>
+        <p>
+          For inquiries, collaborations, or to discuss new creative
+          opportunities, feel free to get in touch.
+        </p>
+      </div>
 
-<!-- CONTACT --------------------------------------------------------------------------------->
-<section id="contact" class="contact-section">
-  <div class="contact-container">
+      <form class="contact-form">
+        <div class="form-row">
+          <input type="text" placeholder="First name *">
+          <input type="text" placeholder="Last name *">
+        </div>
 
-    <div class="contact-form">
-      <h2>Contact<br>Me</h2>
+        <div class="form-row">
+          <input type="tel" placeholder="Phone *">
+          <input type="email" placeholder="Email *">
+        </div>
 
-      <p>
-        For inquiries, collaborations, or to discuss new creative
-        opportunities, feel free to get in touch.
-      </p>
-
-      <form>
-        <input type="text" placeholder="First name *">
-        <input type="text" placeholder="Last name *">
-        <input type="tel" placeholder="Phone *">
-        <input type="email" placeholder="Email *">
         <textarea placeholder="Your message"></textarea>
         <button type="submit">Submit</button>
       </form>
+
+      <div class="contact-logo-wrap">
+        <img src="images/LOGO_3.svg" alt="Jostin Nevarez logo">
+      </div>
+
     </div>
+  </section>
 
-    <div class="contact-image">
-      <img src="images/LOGO_3.svg" alt="Jostin Nevarez logo">
-    </div>
+</main>
 
-  </div>
-</section>
-
-<!-- FOOTER ---------------------------------------------------------------------------------->
+<!-- FOOTER -->
 <footer class="footer-section">
   <div class="footer-inner">
+
     <h2 class="footer-name">JOSTIN N.</h2>
 
     <div class="footer-socials">
@@ -161,6 +175,7 @@
       <p>© 2026 Jostin Nevarez</p>
       <p>All artwork is protected under copyright law. Unauthorized use is prohibited.</p>
     </div>
+
   </div>
 </footer>
 
@@ -170,32 +185,23 @@
 
     if (title) {
       const text = title.textContent || "";
-
       title.setAttribute("aria-label", text);
       title.innerHTML = "";
 
-      let index = 0;
-
-      for (const ch of text) {
+      [...text].forEach((char, index) => {
         const span = document.createElement("span");
         span.className = "char";
         span.style.setProperty("--i", index);
-        span.textContent = ch;
+        span.textContent = char;
         span.setAttribute("aria-hidden", "true");
         title.appendChild(span);
-        index++;
-      }
+      });
     }
 
-    /* Auto-scroll to About section after 5 seconds */
     setTimeout(() => {
       const aboutSection = document.getElementById("about");
-
       if (aboutSection) {
-        aboutSection.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
+        aboutSection.scrollIntoView({ behavior: "smooth" });
       }
     }, 5000);
   });
